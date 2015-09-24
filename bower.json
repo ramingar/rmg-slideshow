@@ -1,0 +1,26 @@
+{
+  "name": "rmg-slideshow",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ramingar/rmg-slideshow",
+  "authors": [
+    "Rafael Minguet García <rminguet@gmail.com>"
+  ],
+  "description": "A slideshow you easily can use in your project",
+  "keywords": [
+    "webcomponents",
+    "polymer",
+    "slideshow"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0"
+  }
+}
