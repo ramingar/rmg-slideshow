@@ -1,0 +1,8 @@
+dist/
+
+# Third party libraries
+src/assets/vendor/
+node_modules/
+
+# IDE
+.idea/
