@@ -1,0 +1,57 @@
+<link rel="import"
+      href="http://www.polymer-project.org/1.0/samples/components/polymer/polymer.html">
+<dom-module name="rmg-slideshow">
+
+    <template>
+        <style>
+            #rmg-slides {
+                border: 1px solid black;
+                height: 300px;
+                position: relative;
+                width: 100%;
+            }
+
+            #rmg-slides > div {
+                border: 1px solid red;
+                height: 100%;
+                transform: translateX(100%);
+                position: absolute;
+                width: 100%;
+            }
+
+            #rmg-slides .rmg-slide-active {
+                transform: translateX(0%);
+                transition: transform 0.7s cubic-bezier(0.825, 0, 0.5, 1) 0s;
+            }
+        </style>
+
+        <div class="rmg-slides-container">
+            <div id="rmg-slides">
+                <div id="rmg-slide1" class="rmg-slide-active">SLIDE 1</div>
+                <div id="rmg-slide2">SLIDE 2</div>
+                <div id="rmg-slide3">SLIDE 3</div>
+                <div id="rmg-slide4">SLIDE 4</div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'rmg-slideshow',
+
+            ready: function () {
+
+            },
+
+            properties: {
+                img1: String,
+                img2: String,
+                img3: String,
+                img4: String
+            }
+        });
+
+    </script>
+
+</dom-module>
