@@ -7,6 +7,7 @@
             #rmg-slides {
                 border: 1px solid black;
                 height: 300px;
+                overflow: hidden;
                 position: relative;
                 width: 100%;
             }
@@ -41,7 +42,8 @@
             is: 'rmg-slideshow',
 
             ready: function () {
-
+                aa = this;
+                this.showSlide(0);
             },
 
             properties: {
@@ -49,6 +51,18 @@
                 img2: String,
                 img3: String,
                 img4: String
+            },
+
+            showSlide: function (slide) {
+                var slides = this.$['rmg-slides'].children;
+                slides[slide].className = "style-scope rmg-slideshow rmg-slide-active";
+                setTimeout(function () {
+                    for (var ii = 0; ii<slides.length; ii++) {
+                        if (ii!=slide) {
+                            slides[ii].className = "style-scope rmg-slideshow";
+                        }
+                    }
+                }, 700);
             }
         });
 
