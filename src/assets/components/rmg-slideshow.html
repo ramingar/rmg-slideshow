@@ -42,8 +42,13 @@
             is: 'rmg-slideshow',
 
             ready: function () {
-                aa = this;
-                this.showSlide(0);
+                this.maxSlides = this.$['rmg-slides'].children.length;
+
+                var callback = function (polymerObject) {
+                    polymerObject.showSlide(polymerObject.nextSlide(), polymerObject.$['rmg-slides'].children);
+                };
+
+                setInterval(callback, this.timer, this);
             },
 
             properties: {
@@ -53,8 +58,19 @@
                 img4: String
             },
 
-            showSlide: function (slide) {
-                var slides = this.$['rmg-slides'].children;
+            slideActive: 0,
+            maxSlides: 0,
+            timer: 2000,
+
+            nextSlide: function () {
+                this.slideActive++;
+                if (this.slideActive >= this.maxSlides) {
+                    this.slideActive = 0;
+                }
+                return this.slideActive;
+            },
+
+            showSlide: function (slide, slides) {
                 slides[slide].className = "style-scope rmg-slideshow rmg-slide-active";
                 setTimeout(function () {
                     for (var ii = 0; ii<slides.length; ii++) {
